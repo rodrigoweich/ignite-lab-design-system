@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from "react";
+import { TextInput } from "./components/TextInput";
+import { Envelope } from "phosphor-react";
+import "./styles/global.css";
+import { Checkbox } from "./components/Checkbox";
+import { Text } from "./components/Text";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <h1 className="text-2xl text-cyan-500 ">HW</h1>
+      <TextInput.Root>
+        <React.Fragment key=".0">
+          <TextInput.Icon>
+            <Envelope />
+          </TextInput.Icon>
+          <TextInput.Input placeholder="Type your e-mail address" />
+        </React.Fragment>
+      </TextInput.Root>
+      <div className="flex items-center gap-2">
+        <Checkbox />
+        <Text size="sm">Lembrar de mim por 30 dias</Text>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </>
+  );
 }
-
-export default App
